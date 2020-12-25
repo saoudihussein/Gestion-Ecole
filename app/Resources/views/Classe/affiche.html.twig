@@ -1,0 +1,18 @@
+<h1>Liste des Matires</h1>
+<table border="1">
+    <thead>
+    <th>Num</th>
+    <th>Libelle</th>
+    <th>Coef</th>
+    <th>Supprimer</th>
+    </thead>
+
+    {% for mats in Matieres %}
+            <td>{{ mats.numMat }}</td>
+            <td>{{ mats.libelle }}</td>
+            <td>{{ mats.coef }}</td>
+            <td><a href="{{ path("suppMat", {'num' : mats.numMat}) }}" >Supprimer</a> </td>
+        </tr>
+
+    {% endfor %}
+</table>

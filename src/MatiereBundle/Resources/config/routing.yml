@@ -1,0 +1,11 @@
+mat_homepage:
+    path:     /AfficheMatrs
+    defaults: { _controller: MatiereBundle:Matiere:affiche }
+
+ajouterMat:
+    path:     /AjouterMat
+    defaults: { _controller: MatiereBundle:Matiere:ajouter }
+
+suppMat:
+    path : /SupprimerMat/{numMat}
+    defaults : {_controller : MatiereBundle:Matiere:supprimer}

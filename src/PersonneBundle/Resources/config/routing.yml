@@ -1,0 +1,11 @@
+affichePers:
+    path:     /AffichePers
+    defaults: { _controller: PersonneBundle:Personne:affiche }
+
+ajouterPers:
+    path : /AjouterPer
+    defaults : {_controller : PersonneBundle:Personne:ajouter}
+
+suppPers:
+    path : /SupprimerPer/{cin}
+    defaults : {_controller : PersonneBundle:Personne:supprimer}

@@ -1,0 +1,25 @@
+<h1>Liste des Personnes</h1>
+<table border="1">
+    <thead>
+    <th>Cin</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Adresse</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Supprimer</th>
+    </thead>
+
+    {% for pers in personnes %}
+        <tr>
+            <td>{{ pers.cinPersonne }}</td>
+            <td>{{ pers.nom }}</td>
+            <td>{{ pers.prenom }}</td>
+            <td>{{ pers.adresse }}</td>
+            <td>{{ pers.Email }}</td>
+            <td>{{ pers.role }}</td>
+            <td><a href="{{ path("suppPers", {'cin' : pers.cinPersonne}) }}" >Supprimer</a> </td>
+        </tr>
+
+    {% endfor %}
+</table>

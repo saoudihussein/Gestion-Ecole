@@ -1,0 +1,23 @@
+<h1>Liste des Eleves</h1>
+<table border="1">
+    <thead>
+    <th>Num </th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Adresse</th>
+    <th>Parent</th>
+    <th>Supprimer</th>
+    </thead>
+
+    {% for elvs in eleves %}
+        <tr>
+            <td>{{ elvs.numEleve }}</td>
+            <td>{{ elvs.nom }}</td>
+            <td>{{ elvs.prenom }}</td>
+            <td>{{ elvs.adresse }}</td>
+            <td>{{ elvs.cinParent.cinPersonne }}</td>
+            <td><a href="{{ path("suppElvs", {'num' : elvs.numEleve}) }}" >Supprimer</a> </td>
+        </tr>
+
+    {% endfor %}
+</table>
