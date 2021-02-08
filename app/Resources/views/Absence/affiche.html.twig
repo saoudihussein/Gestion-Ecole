@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+{% include 'Home/Header.html.twig' %}
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+    {% include 'Home/Navbar.html.twig' %}
+    {% include 'Home/Sidebar.html.twig' %}
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Absence</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{ path('absence_affichage') }}">Absence</a></li>
+                            <li class="breadcrumb-item active">Liste d'Absence </li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title"></h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered" >
+                                    <thead>
+                                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+
+                                    <tr>
+                                        <th>Numero d'absence</th>
+                                        <th>Date d'absence</th>
+                                        <th>les classe</th>
+                                        <th>Numero d'éleve</th>
+                                        <th>Nom d'éleve</th>
+                                        <th>Prenom d'éleve</th>
+                                        <th>les Matieres</th>
+
+                                        <th> <a class="btn btn-primary" href="{{ path('ajouterAbs') }}" role="button">Ajouter</a></th>
+
+                                    </thead>
+                                    <tbody id="myTable">
+
+                                    {% for abs in absences %}
+                                        <tr>
+                                            <td>{{ abs.numAbs }}</td>
+                                            <td>{{ abs.dateAbs }}</td>
+                                            <td>{{ abs.num.libelle }}</td>
+                                            <td>{{ abs.numEleve.numEleve }}</td>
+                                            <td>{{ abs.numEleve.nom }}</td>
+                                            <td>{{ abs.numEleve.prenom }}</td>
+                                            <td>{{ abs.numMat.libelle }}</td>
+                                            <td>  <a class="btn btn-warning"href="{{ path("edit_absence", {'numAbs' : abs.numAbs}) }}" role="button">Modifier</a></td>
+                                            <td>  <a class="btn btn-danger" href="{{ path("suppAbs", {'numAbs' : abs.numAbs}) }}" role="button">Supprimer</a></td>
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+
+                            <!-- /.card-body -->
+                            <div class="card-footer clearfix">
+                                <ul class="pagination pagination-sm m-0 float-right">
+                                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+
+                        <!-- /.card -->
+                    </div>
+
+                </div>
+
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+    {% include 'Home/Footer.html.twig' %}
+
+
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
+
+<!-- jQuery -->
+<script src="{{ asset('../../plugins/jquery/jquery.min.js')}}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('../../plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('../../dist/js/adminlte.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('../../dist/js/demo.js')}}"></script>
+<!-- Insérer cette balise "link" après celle de Bootstrap -->
+<link rel="stylesheet" href="{{ asset('https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css')}}">
+
+<!-- Insérer cette balise "script" après celle de Bootstrap -->
+<script src="{{ asset('https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js')}}"></script>
+</body>
+</html>
+
+</div>
+</body>
+</html>

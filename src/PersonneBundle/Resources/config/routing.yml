@@ -1,3 +1,9 @@
+
+NbMaitre:
+    path:     /
+    defaults: { _controller: PersonneBundle:Personne:NbMaitre }
+
+
 affichePers:
     path:     /AffichePers
     defaults: { _controller: PersonneBundle:Personne:affiche }
@@ -9,3 +15,19 @@ ajouterPers:
 suppPers:
     path : /SupprimerPer/{cin}
     defaults : {_controller : PersonneBundle:Personne:supprimer}
+
+
+edit_personne:
+    path : /EditPers/{cinPersonne}
+    defaults : {_controller : PersonneBundle:Personne:edit}
+
+
+
+dashboard_homepage:
+    path : /
+    defaults : {_controller : PersonneBundle:Personne:Dashboard}
+
+login:
+    path : /login
+    defaults : {_controller : PersonneBundle:Personne:login}
+

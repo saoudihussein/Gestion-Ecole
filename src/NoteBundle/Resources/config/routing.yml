@@ -1,3 +1,21 @@
-note_homepage:
-    path:     /
-    defaults: { _controller: NoteBundle:Default:index }
+
+
+Note_affichage:
+    path:   /AfficheNote
+    defaults: { _controller: NoteBundle:Note:affiche }
+
+ajouterNote:
+    path:     /AjouterNote
+    defaults: { _controller:NoteBundle:Note:ajouter }
+
+suppNote:
+    path : /SupprimerNote/{numnote}
+    defaults : {_controller : NoteBundle:Note:supprimer}
+
+
+edit_note:
+    path:  /Editnote/{numnote}
+    defaults: { _controller: NoteBundle:Note:edit }
+
+
+

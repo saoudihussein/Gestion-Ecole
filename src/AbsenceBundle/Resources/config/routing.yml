@@ -1,0 +1,17 @@
+
+
+absence_affichage:
+    path:   /AfficheAbs
+    defaults: { _controller: AbsenceBundle:Absence:affiche }
+
+ajouterAbs:
+    path:     /AjouterAbs
+    defaults: { _controller:AbsenceBundle:Absence:ajouter }
+
+suppAbs:
+    path : /SupprimerAbs/{numAbs}
+    defaults : {_controller : AbsenceBundle:Absence:supprimer}
+
+edit_absence:
+     path: /Editabsence/{numAbs}
+     defaults: { _controller: AbsenceBundle:Absence:edit }

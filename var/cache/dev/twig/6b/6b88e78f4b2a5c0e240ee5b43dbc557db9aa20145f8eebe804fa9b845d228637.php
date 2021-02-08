@@ -88,9 +88,9 @@ class __TwigTemplate_aaec1b7d1059427f2057b931e4e48af002b9bd04229054e2832dd38513d
             echo twig_include($this->env, $context, "@Twig/Exception/traces.txt.twig", ["exception" => ($context["exception"] ?? $this->getContext($context, "exception")), "format" => "html"], false);
             echo "
                 ";
-            $___internal_39e4d87e86c7900d95f15722adcf07b5c221d63657e7be9ab7144c54ee9b49a1_ = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
+            $___internal_1ef395caaf7c7c013cae32e457cc2f4c99c5fd3b6c73fbce86d193113c031879_ = ('' === $tmp = ob_get_clean()) ? '' : new Markup($tmp, $this->env->getCharset());
             // line 22
-            echo twig_escape_filter($this->env, $___internal_39e4d87e86c7900d95f15722adcf07b5c221d63657e7be9ab7144c54ee9b49a1_, "html");
+            echo twig_escape_filter($this->env, $___internal_1ef395caaf7c7c013cae32e457cc2f4c99c5fd3b6c73fbce86d193113c031879_, "html");
             // line 25
             echo "                </pre>
                 ";
@@ -164,6 +164,6 @@ class __TwigTemplate_aaec1b7d1059427f2057b931e4e48af002b9bd04229054e2832dd38513d
         </tr>
     </tbody>
 </table>
-", "@Twig/Exception/traces_text.html.twig", "C:\\wamp64\\www\\SymfonyProject\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle\\Resources\\views\\Exception\\traces_text.html.twig");
+", "@Twig/Exception/traces_text.html.twig", "C:\\wamp64\\www\\Ecole\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle\\Resources\\views\\Exception\\traces_text.html.twig");
     }
 }

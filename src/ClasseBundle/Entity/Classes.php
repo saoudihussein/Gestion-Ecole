@@ -19,8 +19,10 @@ class Classes
 {
     /**
      * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
+
     private $num;
 
     /**
@@ -84,7 +86,6 @@ class Classes
     {
         $this->capacite = $capacite;
     }
-
 
 
 

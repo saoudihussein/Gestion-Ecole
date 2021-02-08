@@ -12,6 +12,7 @@ namespace EleveBundle\Form;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -35,12 +36,14 @@ class EleveForm extends AbstractType
                         ->setParameter('role', "Parent");
                 }
             ))
-            ->add('numClasse', EntityType::class, array(
+            ->add('num', EntityType::class, array(
                 'class' => 'ClasseBundle\Entity\Classes',
-                'choice_label' => 'numClasse',
+                'choice_label' => 'libelle',
                 'expanded' => false,
-                'multiple' => false
-            ));
+                'multiple' => false,
+            ))
+            ->add('save', SubmitType::Class,array('label' =>'Confirmer'))
+            ->getForm();
     }
 
     public function getName()

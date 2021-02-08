@@ -107,30 +107,30 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // classe_homepage
-        if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'ClasseBundle\\Controller\\ClasseController::indexAction',  '_route' => 'classe_homepage',);
-            if ('/' === substr($pathinfo, -1)) {
-                // no-op
-            } elseif ('GET' !== $canonicalMethod) {
-                goto not_classe_homepage;
-            } else {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'classe_homepage'));
+        elseif (0 === strpos($pathinfo, '/Affiche')) {
+            // absence_affichage
+            if ('/AfficheAbs' === $pathinfo) {
+                return array (  '_controller' => 'AbsenceBundle\\Controller\\AbsenceController::afficheAction',  '_route' => 'absence_affichage',);
             }
 
-            return $ret;
-        }
-        not_classe_homepage:
+            // classe_affichage
+            if ('/Afficheclasse' === $pathinfo) {
+                return array (  '_controller' => 'ClasseBundle\\Controller\\ClasseController::afficheAction',  '_route' => 'classe_affichage',);
+            }
 
-        if (0 === strpos($pathinfo, '/Affiche')) {
-            // mat_homepage
+            // affiche_mat
             if ('/AfficheMatrs' === $pathinfo) {
-                return array (  '_controller' => 'MatiereBundle\\Controller\\MatiereController::afficheAction',  '_route' => 'mat_homepage',);
+                return array (  '_controller' => 'MatiereBundle\\Controller\\MatiereController::afficheAction',  '_route' => 'affiche_mat',);
             }
 
-            // eleve_homepage
+            // Note_affichage
+            if ('/AfficheNote' === $pathinfo) {
+                return array (  '_controller' => 'NoteBundle\\Controller\\NoteController::afficheAction',  '_route' => 'Note_affichage',);
+            }
+
+            // affiche_eleve
             if ('/AfficheElevs' === $pathinfo) {
-                return array (  '_controller' => 'EleveBundle\\Controller\\EleveController::afficheAction',  '_route' => 'eleve_homepage',);
+                return array (  '_controller' => 'EleveBundle\\Controller\\EleveController::afficheAction',  '_route' => 'affiche_eleve',);
             }
 
             // affichePers
@@ -141,9 +141,24 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         elseif (0 === strpos($pathinfo, '/Ajouter')) {
+            // ajouterAbs
+            if ('/AjouterAbs' === $pathinfo) {
+                return array (  '_controller' => 'AbsenceBundle\\Controller\\AbsenceController::ajouterAction',  '_route' => 'ajouterAbs',);
+            }
+
+            // ajouter_classe
+            if ('/Ajouterclasse' === $pathinfo) {
+                return array (  '_controller' => 'ClasseBundle\\Controller\\ClasseController::ajouterAction',  '_route' => 'ajouter_classe',);
+            }
+
             // ajouterMat
             if ('/AjouterMat' === $pathinfo) {
                 return array (  '_controller' => 'MatiereBundle\\Controller\\MatiereController::ajouterAction',  '_route' => 'ajouterMat',);
+            }
+
+            // ajouterNote
+            if ('/AjouterNote' === $pathinfo) {
+                return array (  '_controller' => 'NoteBundle\\Controller\\NoteController::ajouterAction',  '_route' => 'ajouterNote',);
             }
 
             // ajouterElev
@@ -159,9 +174,24 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         elseif (0 === strpos($pathinfo, '/Supprimer')) {
+            // suppAbs
+            if (0 === strpos($pathinfo, '/SupprimerAbs') && preg_match('#^/SupprimerAbs/(?P<numAbs>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'suppAbs']), array (  '_controller' => 'AbsenceBundle\\Controller\\AbsenceController::supprimerAction',));
+            }
+
+            // supp_classe
+            if (0 === strpos($pathinfo, '/Supprimerclasse') && preg_match('#^/Supprimerclasse/(?P<num>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'supp_classe']), array (  '_controller' => 'ClasseBundle\\Controller\\ClasseController::supprimerAction',));
+            }
+
             // suppMat
             if (0 === strpos($pathinfo, '/SupprimerMat') && preg_match('#^/SupprimerMat/(?P<numMat>[^/]++)$#sD', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, ['_route' => 'suppMat']), array (  '_controller' => 'MatiereBundle\\Controller\\MatiereController::supprimerAction',));
+            }
+
+            // suppNote
+            if (0 === strpos($pathinfo, '/SupprimerNote') && preg_match('#^/SupprimerNote/(?P<numnote>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'suppNote']), array (  '_controller' => 'NoteBundle\\Controller\\NoteController::supprimerAction',));
             }
 
             // suppElvs
@@ -176,24 +206,77 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // note_homepage
+        elseif (0 === strpos($pathinfo, '/Edit')) {
+            // edit_absence
+            if (0 === strpos($pathinfo, '/Editabsence') && preg_match('#^/Editabsence/(?P<numAbs>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'edit_absence']), array (  '_controller' => 'AbsenceBundle\\Controller\\AbsenceController::editAction',));
+            }
+
+            // edit_classe
+            if (0 === strpos($pathinfo, '/Editclasse') && preg_match('#^/Editclasse/(?P<num>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'edit_classe']), array (  '_controller' => 'ClasseBundle\\Controller\\ClasseController::editAction',));
+            }
+
+            // edit_matiere
+            if (0 === strpos($pathinfo, '/EditMat') && preg_match('#^/EditMat/(?P<numMat>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'edit_matiere']), array (  '_controller' => 'MatiereBundle\\Controller\\MatiereController::editAction',));
+            }
+
+            // edit_note
+            if (0 === strpos($pathinfo, '/Editnote') && preg_match('#^/Editnote/(?P<numnote>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'edit_note']), array (  '_controller' => 'NoteBundle\\Controller\\NoteController::editAction',));
+            }
+
+            // edit_eleve
+            if (0 === strpos($pathinfo, '/EditElevs') && preg_match('#^/EditElevs/(?P<num>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'edit_eleve']), array (  '_controller' => 'EleveBundle\\Controller\\EleveController::editAction',));
+            }
+
+            // edit_personne
+            if (0 === strpos($pathinfo, '/EditPers') && preg_match('#^/EditPers/(?P<cinPersonne>[^/]++)$#sD', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, ['_route' => 'edit_personne']), array (  '_controller' => 'PersonneBundle\\Controller\\PersonneController::editAction',));
+            }
+
+        }
+
+        // NbMaitre
         if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'NoteBundle\\Controller\\ClasseController::indexAction',  '_route' => 'note_homepage',);
+            $ret = array (  '_controller' => 'PersonneBundle\\Controller\\PersonneController::NbMaitreAction',  '_route' => 'NbMaitre',);
             if ('/' === substr($pathinfo, -1)) {
                 // no-op
             } elseif ('GET' !== $canonicalMethod) {
-                goto not_note_homepage;
+                goto not_NbMaitre;
             } else {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'note_homepage'));
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'NbMaitre'));
             }
 
             return $ret;
         }
-        not_note_homepage:
+        not_NbMaitre:
+
+        // dashboard_homepage
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'PersonneBundle\\Controller\\PersonneController::DashboardAction',  '_route' => 'dashboard_homepage',);
+            if ('/' === substr($pathinfo, -1)) {
+                // no-op
+            } elseif ('GET' !== $canonicalMethod) {
+                goto not_dashboard_homepage;
+            } else {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'dashboard_homepage'));
+            }
+
+            return $ret;
+        }
+        not_dashboard_homepage:
+
+        // login
+        if ('/login' === $pathinfo) {
+            return array (  '_controller' => 'PersonneBundle\\Controller\\PersonneController::loginAction',  '_route' => 'login',);
+        }
 
         // homepage
         if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'AppBundle\\Controller\\ClasseController::indexAction',  '_route' => 'homepage',);
+            $ret = array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
             if ('/' === substr($pathinfo, -1)) {
                 // no-op
             } elseif ('GET' !== $canonicalMethod) {

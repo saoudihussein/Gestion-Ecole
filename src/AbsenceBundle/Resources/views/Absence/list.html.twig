@@ -1,0 +1,13 @@
+<h1>liste</h1>
+<table border="1">
+    <tr>
+        <td>id</td>
+        <td>libelle</td>
+    </tr>
+
+    {% for absence in absences %}
+    <tr>
+        <td>{{ absence.num }}</td>
+    </tr>
+    {% endfor %}
+</table>

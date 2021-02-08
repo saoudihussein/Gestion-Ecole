@@ -36,7 +36,7 @@ class Matiere
 
     /**
      * @ORM\ManyToOne(targetEntity=PersonneBundle\Entity\Personne::class)
-     * @ORM\JoinColumn(name="cinMaitre", referencedColumnName="cin_personne")
+     * @ORM\JoinColumn(name="cinMaitre", referencedColumnName="cin_personne",onDelete="CASCADE")
      */
     protected $cinMaitre;
 

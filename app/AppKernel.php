@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new NoteBundle\NoteBundle(),
             new MatiereBundle\MatiereBundle(),
             new ClasseBundle\ClasseBundle(),
+            new AbsenceBundle\AbsenceBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

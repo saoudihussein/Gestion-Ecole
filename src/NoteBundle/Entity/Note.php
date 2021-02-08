@@ -34,15 +34,22 @@ class Note
 
     /**
      * @ORM\ManyToOne(targetEntity="MatiereBundle\Entity\Matiere")
-     * @ORM\JoinColumn(name="numMat", referencedColumnName="num_mat")
+     * @ORM\JoinColumn(name="numMat", referencedColumnName="num_mat",onDelete="CASCADE")
      */
     private $numMat;
 
     /**
      * @ORM\ManyToOne(targetEntity="EleveBundle\Entity\Eleve")
-     * @ORM\JoinColumn(name="numEleve", referencedColumnName="num_eleve")
+     * @ORM\JoinColumn(name="numEleve", referencedColumnName="num_eleve",onDelete="CASCADE")
      */
     private $numEleve;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ClasseBundle\Entity\Classes")
+     * @ORM\JoinColumn(name="num", referencedColumnName="num", onDelete="CASCADE")
+     * @ORM\JoinColumn(onDelete="SET NULL")
+     */
+    private $num;
 
     /**
      * @return mixed
@@ -76,6 +83,8 @@ class Note
         $this->note = $note;
     }
 
+
+
     /**
      * @return mixed
      */
@@ -108,6 +117,21 @@ class Note
         $this->numEleve = $numEleve;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getNum()
+    {
+        return $this->num;
+    }
+
+    /**
+     * @param mixed $num
+     */
+    public function setNum($num)
+    {
+        $this->num = $num;
+    }
 
 
 }

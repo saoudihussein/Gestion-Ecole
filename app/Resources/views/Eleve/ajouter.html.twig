@@ -1,6 +1,130 @@
-<h1>Ajouter Eleve</h1>
+<!DOCTYPE html>
+<html>
+{% include 'Home/Header.html.twig' %}
 
-<form action="" method="post">
-    {{ form_widget(Form) }}
-    <input type="submit">
-</form>
+
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+    {% include 'Home/Navbar.html.twig' %}
+    {% include 'Home/Sidebar.html.twig' %}
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6 ">
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="{{ path('affiche_eleve') }}">Elève</a></li>
+                            <li class="breadcrumb-item active">Ajouter Elève</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+
+                    <div class="col-md-6 offset-md-3 ">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Formulaire Elève</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form role="form" action="" method="post">
+                                {{ form_start(Form,{'attr':{'novalidate':
+                                    'novalidate'}})}}
+                                <div class="card-body">
+
+
+                                    <div class="form-group">
+                                        {{ form_label(Form.nom,'Nom') }}
+                                        {{ form_widget(Form.nom,{'attr':{'class':'form-control'}}) }}
+
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_label(Form.prenom,'Prénom') }}
+                                        {{ form_widget(Form.prenom,{'attr':{'class':'form-control'}}) }}
+
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_label(Form.adresse,'Adresse') }}
+                                        {{ form_widget(Form.adresse,{'attr':{'class':'form-control'}}) }}
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form_label(Form.cinParent,'Cin Parent') }}
+                                        {{ form_widget(Form.cinParent,{'attr':{'class':'form-control'}}) }}
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form_label(Form.num,'Classe') }}
+                                        {{ form_widget(Form.num,{'attr':{'class':'form-control'}}) }}
+
+                                    </div>
+
+
+
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer">
+                                    {{ form_widget(Form.save,{'attr':{'class':'btn btn-primary'}}) }}
+                                </div>
+                                {{ form_rest(Form) }}
+                                {{ form_end(Form)}}
+                            </form>
+                        </div>
+
+
+
+                    </div>
+                    <!--/.col (left) -->
+                    <!-- right column -->
+                    <!--/.col (right) -->
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    {% include 'Home/Footer.html.twig' %}
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="../../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        bsCustomFileInput.init();
+    });
+</script>
+</body>
+</html>

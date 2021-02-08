@@ -1,4 +1,5 @@
-eleve_homepage:
+
+affiche_eleve:
     path:     /AfficheElevs
     defaults: { _controller: EleveBundle:Eleve:affiche }
 
@@ -9,3 +10,7 @@ ajouterElev:
 suppElvs:
     path : /SupprimerElv/{num}
     defaults : {_controller : EleveBundle:Eleve:supprimer}
+
+edit_eleve:
+    path:  /EditElevs/{num}
+    defaults: { _controller: EleveBundle:Eleve:edit }

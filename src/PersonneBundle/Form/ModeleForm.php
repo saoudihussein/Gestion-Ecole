@@ -13,6 +13,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -31,7 +32,6 @@ class ModeleForm extends AbstractType
             ->add('role', ChoiceType::class, [
                 'choices' => [
                     'Choisir le role ' => [
-                        'Employée' => 'Employe',
                         'Parent' => 'Parent',
                         'Maitre' => 'Maitre',
                     ]
@@ -39,7 +39,9 @@ class ModeleForm extends AbstractType
                 'attr' => ['class' => 'form-control']
 
 
-            ]);
+            ])
+            ->add('save', SubmitType::Class,array('label' =>'Confirmer'))
+            ->getForm();
     }
 
     public function getName()

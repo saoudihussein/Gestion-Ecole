@@ -489,6 +489,6 @@ class __TwigTemplate_f82d705fa1d04e2649544f3aedc8f4d10c3a055cf5869b5a3b0c7c84ab7
         {% endif %}
     </div>
 </div>
-", "@Twig/Exception/exception.html.twig", "C:\\wamp64\\www\\SymfonyProject\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle\\Resources\\views\\Exception\\exception.html.twig");
+", "@Twig/Exception/exception.html.twig", "C:\\wamp64\\www\\Ecole\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle\\Resources\\views\\Exception\\exception.html.twig");
     }
 }

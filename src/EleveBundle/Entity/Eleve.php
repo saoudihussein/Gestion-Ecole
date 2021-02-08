@@ -48,53 +48,14 @@ class Eleve
     private $adresse;
 
     /**
-     * @return mixed
-     */
-    public function getNumClasse()
-    {
-        return $this->numClasse;
-    }
-
-    /**
-     * @param mixed $numClasse
-     */
-    public function setNumClasse($numClasse)
-    {
-        $this->numClasse = $numClasse;
-    }
-
-
-    /**
      * @ORM\ManyToOne(targetEntity=PersonneBundle\Entity\Personne::class)
-     * @ORM\JoinColumn(name="cinParent", referencedColumnName="cin_personne")
+     * @ORM\JoinColumn(name="cinParent", referencedColumnName="cin_personne",onDelete="CASCADE")
      */
         protected $cinParent;
 
     /**
      * @ORM\ManyToOne(targetEntity=ClasseBundle\Entity\Classes::class)
-     * @ORM\JoinColumn(name="numClasse", referencedColumnName="num")
-     */
-    protected $numClasse;
-
-    /**
-     * @return mixed
-     */
-    public function getNum()
-    {
-        return $this->num;
-    }
-
-    /**
-     * @param mixed $num
-     */
-    public function setNum($num)
-    {
-        $this->num = $num;
-    }
-
-    /**
-     * @ORM\ManyToOne(targetEntity=ClasseBundle\Entity\Classes::class)
-     * @ORM\JoinColumn(name="numClasse", referencedColumnName="num")
+     * @ORM\JoinColumn(name="num", referencedColumnName="num",onDelete="CASCADE")
      */
     protected $num;
 
@@ -178,10 +139,21 @@ class Eleve
         $this->cinParent = $cinParent;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getNum()
+    {
+        return $this->num;
+    }
 
-
-
-
+    /**
+     * @param mixed $num
+     */
+    public function setNum($num)
+    {
+        $this->num = $num;
+    }
 
 
 }
